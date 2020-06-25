@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "notistack",
+	"name": "@allganize/notistack",
 	"kind": 0,
 	"flags": {},
 	"originalName": "",
@@ -1102,7 +1102,7 @@
 					"sources": [
 						{
 							"fileName": "node_modules/@material-ui/styles/withStyles/withStyles.d.ts",
-							"line": 117,
+							"line": 115,
 							"character": 9
 						}
 					],
@@ -1190,7 +1190,7 @@
 					"sources": [
 						{
 							"fileName": "node_modules/@material-ui/styles/withStyles/withStyles.d.ts",
-							"line": 118,
+							"line": 116,
 							"character": 10
 						}
 					],
