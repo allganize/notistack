@@ -75,10 +75,27 @@ class SnackbarProvider extends Component<SnackbarProviderProps, State> {
                     hasSpecifiedKey ? item.key === key : item.message === message
                 );
 
+                const queueIndex = state.queue.findIndex(compareFunction);
+                const viewIndex = state.snacks.findIndex(compareFunction);
                 const inQueue = state.queue.findIndex(compareFunction) > -1;
                 const inView = state.snacks.findIndex(compareFunction) > -1;
                 if (inQueue || inView) {
-                    return state;
+                    return {
+                        ...state,
+                        queue: inQueue ? [
+                            ...state.queue.slice(0, queueIndex),
+                            snack,
+                            ...state.queue.slice(queueIndex + 1),
+                        ] : state.queue,
+                        snacks: inView ? [
+                            ...state.snacks.slice(0, viewIndex),
+                            {
+                                ...snack,
+                                entered: state.snacks[viewIndex].entered || snack.entered,
+                            },
+                            ...state.snacks.slice(viewIndex + 1),
+                        ] : state.snacks,
+                    };
                 }
             }
 
